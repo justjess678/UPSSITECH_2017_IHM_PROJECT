@@ -1,0 +1,6 @@
+[submodule "order_aggregator_processing/libraries/onedollar-unistroke-recognizer"]
+	path = order_aggregator_processing/libraries/onedollar-unistroke-recognizer
+	url = ../../nok/onedollar-unistroke-recognizer.git
+[submodule "order_generator_processing/libraries/onedollar-unistroke-recognizer"]
+	path = order_generator_processing/libraries/onedollar-unistroke-recognizer
+	url = ../../nok/onedollar-unistroke-recognizer.git
