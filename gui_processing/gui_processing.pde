@@ -19,38 +19,40 @@ void setup () {
 float pos_x = 64;
 float pos_y = 64;
 
+float target_x = pos_x;
+float target_y = pos_y;
+
+float step_length = 32;
+
 void draw () {
   while (!current_bus.actions_queue.isEmpty()) {
+      
+    target_x = pos_x;
+    target_y = pos_y;
     MoveOrder next_order = current_bus.actions_queue.poll();
     switch (next_order.action) {
       case Deplacement: {
-            
         switch (next_order.direction) {
           case VersHaut: {
-            pos_x += 0.0;
-            pos_y -= 1.0;
+            target_y -= step_length;
             break;
           }
           case VersBas: {
-            pos_x += 0.0;
-            pos_y += 1.0;
+            target_y += step_length;
             break;
           }
           case VersGauche: {
-            pos_x -= 1.0;
-            pos_y += 0.0;
+            target_x -= step_length;
             break;
           }
           case VersDroite: {
-            pos_x += 1.0;
-            pos_y += 0.0;
+            target_x += step_length;
             break;
           }
           
           default: {
             println("Caramba, cé quoi ce binz?");  
           }
-            
         }
         break;
       }
@@ -61,8 +63,8 @@ void draw () {
     }
   }
   
-  //pos_x = mouseX;
-  //pos_y = mouseY;
+  pos_x += (target_x - pos_x) / 10.0;
+  pos_y += (target_y - pos_y) / 10.0;
   
   
   background(0);

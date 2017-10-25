@@ -12,7 +12,7 @@ class IvyBus {
     bus = new Ivy("gui", "IvyTranslater Ready", null);
     
     
-    bus.bindMsg("^sra5 Action=(.*) Direction=(.*)", new IvyMessageListener() {
+    bus.bindMsg("^sra5 Parsed=Action:(.*) Position:(.*) Confidence=(.*) NP=(.*) Num_A=(.*)", new IvyMessageListener() {
       public void receive(IvyClient client, String[] args) {
         MoveOrder new_order = new MoveOrder("sra5", args);
         actions_queue.add(new_order);
